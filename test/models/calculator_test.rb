@@ -10,7 +10,7 @@ class CalculatorTest < ActiveSupport::TestCase
   end
 
   def test_two_numbers
-    assert_equal 6, Calculator.add("2,6")
+    assert_equal 8, Calculator.add("2,6")
   end
 
   def test_multiple_numbers
