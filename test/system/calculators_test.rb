@@ -1,0 +1,39 @@
+require "application_system_test_case"
+
+class CalculatorsTest < ApplicationSystemTestCase
+  setup do
+    @calculator = calculators(:one)
+  end
+
+  test "visiting the index" do
+    visit calculators_url
+    assert_selector "h1", text: "Calculators"
+  end
+
+  test "should create calculator" do
+    visit calculators_url
+    click_on "New calculator"
+
+    click_on "Create Calculator"
+
+    assert_text "Calculator was successfully created"
+    click_on "Back"
+  end
+
+  test "should update Calculator" do
+    visit calculator_url(@calculator)
+    click_on "Edit this calculator", match: :first
+
+    click_on "Update Calculator"
+
+    assert_text "Calculator was successfully updated"
+    click_on "Back"
+  end
+
+  test "should destroy Calculator" do
+    visit calculator_url(@calculator)
+    click_on "Destroy this calculator", match: :first
+
+    assert_text "Calculator was successfully destroyed"
+  end
+end
