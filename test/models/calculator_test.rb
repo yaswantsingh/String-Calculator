@@ -24,4 +24,8 @@ class CalculatorTest < ActiveSupport::TestCase
   def test_numbers_with_newlines
     assert_equal 6, Calculator.add("1\n2,3")
   end
+
+  def test_custom_delimiter
+    assert_equal 3, Calculator.add("//;\n1;2")
+  end
 end
