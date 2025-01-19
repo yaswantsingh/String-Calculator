@@ -28,4 +28,15 @@ class CalculatorTest < ActiveSupport::TestCase
   def test_custom_delimiter
     assert_equal 3, Calculator.add("//;\n1;2")
   end
+
+  def test_negative_number
+    error = assert_raises(ArgumentError) { Calculator.add("1,-2,3") }
+    assert_equal "Negative numbers are not allowed: -2", error.message
+  end
+
+  def test_multiple_negative_numbers
+    error = assert_raises(ArgumentError) { Calculator.add("1,-2,-3,4") }
+    assert_equal "Negative numbers are not allowed: -2, -3", error.message
+  end
+
 end
