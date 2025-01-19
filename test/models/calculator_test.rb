@@ -20,4 +20,8 @@ class CalculatorTest < ActiveSupport::TestCase
   def test_invalid_input
     assert_raises(ArgumentError) { Calculator.add() }
   end
+
+  def test_numbers_with_newlines
+    assert_equal 6, Calculator.add("1\n2,3")
+  end
 end
